@@ -1,0 +1,1 @@
+insert into member (id, name) values (default, 'data.sql');
