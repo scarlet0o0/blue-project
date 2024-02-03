@@ -4,6 +4,14 @@
 
 <mapper namespace="com.rainbow.blue.mapper.PostMapper">
   <select id="AllList" resultType="com.rainbow.blue.vo.PostVo">
-    select * from post
+    SELECT * FROM post
   </select>
+
+  <select id="getPostById" parameterType="Long" resultType="com.rainbow.blue.vo.PostVo">
+    SELECT * FROM post WHERE id=#{id}
+  </select>
+
+  <delete id="deleteById" parameterType="Long">
+    DELETE FROM post WHERE id=#{id}
+  </delete>
 </mapper>
