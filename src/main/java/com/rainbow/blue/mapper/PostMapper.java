@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface PostMapper {
-    List<PostVo> AllPostList();
+    List<PostVo> AllPosts();
 
     PostVo getPostById(Long id);
 

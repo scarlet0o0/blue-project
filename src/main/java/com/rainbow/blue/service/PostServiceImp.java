@@ -24,7 +24,7 @@ public class PostServiceImp implements PostService{
 
     @Override
     public List<PostDto> getAllPosts() {
-        List<PostVo> postVos = postMapper.AllPostList();
+        List<PostVo> postVos = postMapper.AllPosts();
         return postVos.stream().map(PostDto::from).toList();
     }
 
