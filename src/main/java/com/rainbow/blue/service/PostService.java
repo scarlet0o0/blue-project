@@ -1,12 +1,37 @@
 package com.rainbow.blue.service;
 
-import com.rainbow.blue.dto.PostDto;
+import com.rainbow.blue.domain.Post;
+import com.rainbow.blue.dto.PostResponseDto;
+import com.rainbow.blue.dto.PostRequestDto;
+import com.rainbow.blue.repository.PostRepository;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-public interface PostService {
-    PostDto getPost(Long id);
-    void savePost();
-    List<PostDto> getAllPosts();
-    void deletePost(Long id);
-    void updatePost();
+@Service
+@RequiredArgsConstructor
+public class PostService{
+    private final PostRepository postRepository;
+
+    public void savePost(PostRequestDto postDto) {
+        postRepository.save(Post.of(postDto));
+    }
+
+    public PostResponseDto getPost(Long id) {
+        Post post = postRepository.getPostById(id);
+        return PostResponseDto.from(post);
+    }
+
+    public List<PostResponseDto> getAllPosts() {
+        List<Post> posts = postRepository.AllPosts();
+        return posts.stream().map(PostResponseDto::from).toList();
+    }
+
+    public void deletePost(Long id) {
+        postRepository.deleteById(id);
+    }
+
+    public void updatePost(PostRequestDto postDto) {
+        postRepository.update(Post.of(postDto));
+    }
 }

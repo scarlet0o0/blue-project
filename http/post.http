@@ -1,25 +1,30 @@
-### 1. 글 조회
-GET localhost:8080/post
+### 글 조회
+GET localhost:8080/post?postId=1
 
-{
-  "content": "오늘의 첫번째 글을 작성 해 보았다",
-  "writer": "유저1"
-}
 
-### 2. 글 전체 조회
+### 글 전체 조회
 GET localhost:8080/posts
 
-[
-  {
-    "content": "오늘의 첫번째 글을 작성 해 보았다",
-    "writer": "유저1"
-  },
-  {
-    "content": "오늘의 두번째 글을 작성 해 보았다",
-    "writer": "유저2"
-  }
-]
 
-### 3. 글 삭제
+### 글 추가
+POST localhost:8080/post
+Content-Type: application/json
+
+{
+  "content": "오늘의 새로운 글을 작성 해 보았다",
+  "writer": "새로운 유저"
+}
+
+
+### 글 업데이트
+PUT localhost:8080/post?postId=1
+Content-Type: application/json
+
+{
+  "content": "오늘의 수정된 글을 작성 해 보았다",
+  "writer": "수정된 유저"
+}
+
+### 글 삭제
 DELETE localhost:8080/post?postId=1
 
