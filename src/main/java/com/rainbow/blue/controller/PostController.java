@@ -1,8 +1,8 @@
 package com.rainbow.blue.controller;
 
-import com.rainbow.blue.dto.PostRequestDto;
-import com.rainbow.blue.dto.PostResponseDto;
-import com.rainbow.blue.dto.PostUpdateRequestDto;
+import com.rainbow.blue.dto.request.PostRequestDto;
+import com.rainbow.blue.dto.response.PostResponseDto;
+import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import com.rainbow.blue.service.PostService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

@@ -1,9 +1,10 @@
-package com.rainbow.blue.dto;
+package com.rainbow.blue.dto.request;
 
 import lombok.Getter;
 
 @Getter
-public class PostUpdateRequestDto {
+public class PostRequestDto {
+    public Long id;
     public String content;
     public String writer;
 

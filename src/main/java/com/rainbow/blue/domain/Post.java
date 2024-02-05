@@ -1,7 +1,7 @@
 package com.rainbow.blue.domain;
 
-import com.rainbow.blue.dto.PostRequestDto;
-import com.rainbow.blue.dto.PostUpdateRequestDto;
+import com.rainbow.blue.dto.request.PostRequestDto;
+import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

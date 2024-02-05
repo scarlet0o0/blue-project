@@ -1,4 +1,4 @@
-package com.rainbow.blue.dto;
+package com.rainbow.blue.dto.response;
 
 import com.rainbow.blue.domain.Post;
 import lombok.Builder;

@@ -1,9 +1,9 @@
 package com.rainbow.blue.service;
 
 import com.rainbow.blue.domain.Post;
-import com.rainbow.blue.dto.PostRequestDto;
-import com.rainbow.blue.dto.PostResponseDto;
-import com.rainbow.blue.dto.PostUpdateRequestDto;
+import com.rainbow.blue.dto.request.PostRequestDto;
+import com.rainbow.blue.dto.response.PostResponseDto;
+import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import com.rainbow.blue.repository.PostRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
