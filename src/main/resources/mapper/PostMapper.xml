@@ -17,7 +17,6 @@
 
   <update id="update" parameterType="com.rainbow.blue.domain.Post">
     UPDATE post SET content=#{content}, writer=#{writer} WHERE id=#{id}
-
   </update>
 
   <delete id="deleteById" parameterType="Long">
