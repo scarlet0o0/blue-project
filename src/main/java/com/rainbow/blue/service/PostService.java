@@ -1,8 +1,9 @@
 package com.rainbow.blue.service;
 
 import com.rainbow.blue.domain.Post;
-import com.rainbow.blue.dto.PostResponseDto;
 import com.rainbow.blue.dto.PostRequestDto;
+import com.rainbow.blue.dto.PostResponseDto;
+import com.rainbow.blue.dto.PostUpdateRequestDto;
 import com.rainbow.blue.repository.PostRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +32,7 @@ public class PostService{
         postRepository.deleteById(id);
     }
 
-    public void updatePost(PostRequestDto postDto) {
-        postRepository.update(Post.of(postDto));
+    public void updatePost(Long postId, PostUpdateRequestDto postDto) {
+        postRepository.update(Post.of(postId, postDto));
     }
 }

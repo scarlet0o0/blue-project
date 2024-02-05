@@ -1,6 +1,7 @@
 package com.rainbow.blue.domain;
 
 import com.rainbow.blue.dto.PostRequestDto;
+import com.rainbow.blue.dto.PostUpdateRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,6 +13,10 @@ public class Post {
     String writer;
 
     public static Post of(PostRequestDto postRequestDto) {
-        return new Post(postRequestDto.id, postRequestDto.getContent(), postRequestDto.getWriter());
+        return new Post(postRequestDto.getId(), postRequestDto.getContent(), postRequestDto.getWriter());
+    }
+
+    public static Post of(Long postId, PostUpdateRequestDto postRequestDto) {
+        return new Post(postId, postRequestDto.getContent(), postRequestDto.getWriter());
     }
 }

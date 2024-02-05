@@ -1,5 +1,5 @@
 ### 글 조회
-GET {{url}}/post?postId=1
+GET {{url}}/post/1
 
 
 ### 글 전체 조회
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 
 ### 글 업데이트
-PUT {{url}}/post?postId=1
+PUT {{url}}/post/1
 Content-Type: application/json
 
 {
@@ -26,5 +26,5 @@ Content-Type: application/json
 }
 
 ### 글 삭제
-DELETE {{url}}/post?postId=1
+DELETE {{url}}/post/1
 
