@@ -28,6 +28,11 @@ public class PostService{
         return posts.stream().map(PostResponseDto::from).toList();
     }
 
+    public List<PostResponseDto> getPostPages(int pageNum) {
+        List<Post> posts = postRepository.postPages(pageNum);
+        return posts.stream().map(PostResponseDto::from).toList();
+    }
+
     public void deletePost(Long id) {
         postRepository.deleteById(id);
     }

@@ -6,13 +6,7 @@ import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import com.rainbow.blue.service.PostService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,6 +21,11 @@ public class PostController {
     @GetMapping(value = "/posts")
     public List<PostResponseDto> getPosts() {
         return postService.getAllPosts();
+    }
+
+    @GetMapping(value = "/post/page")
+    public List<PostResponseDto> getPostPages(@RequestParam int pageNum) {
+        return postService.getPostPages(pageNum);
     }
 
     @PostMapping(value = "/post")

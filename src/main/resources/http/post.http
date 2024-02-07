@@ -5,6 +5,8 @@ GET {{url}}/post/2
 ### 글 전체 조회
 GET {{url}}/posts
 
+### 글 페이징 조회
+GET {{url}}/post/page?pageNum=1
 
 ### 글 추가
 POST {{url}}/post

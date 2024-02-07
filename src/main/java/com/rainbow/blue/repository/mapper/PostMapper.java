@@ -12,6 +12,9 @@ public interface PostMapper extends PostRepository {
     List<Post> AllPosts();
 
     @Override
+    List<Post> postPages(int pageNum);
+
+    @Override
     Post getPostById(Long id);
 
     @Override

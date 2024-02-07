@@ -7,6 +7,10 @@
     SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post
   </select>
 
+  <select id="postPages" parameterType="int" resultType="com.rainbow.blue.domain.Post">
+    SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post LIMIT 10 OFFSET  10 * #{pageNum}
+  </select>
+
   <select id="getPostById" parameterType="Long" resultType="com.rainbow.blue.domain.Post">
     SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post WHERE id=#{id}
   </select>

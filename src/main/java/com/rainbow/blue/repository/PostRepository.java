@@ -6,6 +6,8 @@ import java.util.List;
 public interface PostRepository {
     List<Post> AllPosts();
 
+    List<Post> postPages(int pageNum);
+
     Post getPostById(Long id);
 
     void deleteById(Long id);
