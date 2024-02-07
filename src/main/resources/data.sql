@@ -1,2 +1,2 @@
-insert into post (content, writer) values ('오늘의 첫번째 글을 작성 해 보았다', '유저1');
-insert into post (content, writer) values ('오늘의 두번째 글을 작성 해 보았다', '유저2');
+insert into post (title, content, writer, created_at) values ('글쓰기1', '오늘의 첫번째 글을 작성 해 보았다', '유저1', NOW());
+insert into post (title, content, writer, created_at) values ('글쓰기2', '오늘의 두번째 글을 작성 해 보았다', '유저2', NOW());

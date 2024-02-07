@@ -4,19 +4,19 @@
 
 <mapper namespace="com.rainbow.blue.repository.mapper.PostMapper">
   <select id="AllPosts" resultType="com.rainbow.blue.domain.Post">
-    SELECT * FROM post
+    SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post
   </select>
 
   <select id="getPostById" parameterType="Long" resultType="com.rainbow.blue.domain.Post">
-    SELECT * FROM post WHERE id=#{id}
+    SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post WHERE id=#{id}
   </select>
 
   <insert id="save" parameterType="com.rainbow.blue.domain.Post">
-    INSERT INTO post(content, writer) VALUES (#{content}, #{writer})
+    INSERT INTO post(title, content, writer, created_at) VALUES (#{title}, #{content}, #{writer}, #{createdAt})
   </insert>
 
   <update id="update" parameterType="com.rainbow.blue.domain.Post">
-    UPDATE post SET content=#{content}, writer=#{writer} WHERE id=#{id}
+    UPDATE post SET title=#{title}, content=#{content}, writer=#{writer} WHERE id=#{id}
   </update>
 
   <delete id="deleteById" parameterType="Long">
