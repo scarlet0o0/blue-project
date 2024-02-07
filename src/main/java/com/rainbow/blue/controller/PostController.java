@@ -5,6 +5,8 @@ import com.rainbow.blue.dto.response.PostResponseDto;
 import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import com.rainbow.blue.service.PostService;
 import java.util.List;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,12 +31,12 @@ public class PostController {
     }
 
     @PostMapping(value = "/post")
-    public void savePost(@RequestBody PostSaveRequestDto postDto) {
+    public void savePost(@Valid @RequestBody PostSaveRequestDto postDto) {
         postService.savePost(postDto);
     }
 
     @PutMapping(value = "/post/{postId}")
-    public void updatePost(@PathVariable Long postId, @RequestBody PostUpdateRequestDto postDto) {
+    public void updatePost(@PathVariable Long postId, @Valid @RequestBody PostUpdateRequestDto postDto) {
         postService.updatePost(postId, postDto);
     }
 
