@@ -1,6 +1,6 @@
 package com.rainbow.blue.controller;
 
-import com.rainbow.blue.dto.request.PostRequestDto;
+import com.rainbow.blue.dto.request.PostSaveRequestDto;
 import com.rainbow.blue.dto.response.PostResponseDto;
 import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import com.rainbow.blue.service.PostService;
@@ -30,7 +30,7 @@ public class PostController {
     }
 
     @PostMapping(value = "/post")
-    public void savePost(@RequestBody PostRequestDto postDto) {
+    public void savePost(@RequestBody PostSaveRequestDto postDto) {
         postService.savePost(postDto);
     }
 

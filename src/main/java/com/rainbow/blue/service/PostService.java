@@ -1,7 +1,7 @@
 package com.rainbow.blue.service;
 
 import com.rainbow.blue.domain.Post;
-import com.rainbow.blue.dto.request.PostRequestDto;
+import com.rainbow.blue.dto.request.PostSaveRequestDto;
 import com.rainbow.blue.dto.response.PostResponseDto;
 import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import com.rainbow.blue.repository.PostRepository;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class PostService{
     private final PostRepository postRepository;
 
-    public void savePost(PostRequestDto postDto) {
+    public void savePost(PostSaveRequestDto postDto) {
         postRepository.save(Post.of(postDto));
     }
 

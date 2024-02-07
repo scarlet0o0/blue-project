@@ -1,6 +1,6 @@
 package com.rainbow.blue.domain;
 
-import com.rainbow.blue.dto.request.PostRequestDto;
+import com.rainbow.blue.dto.request.PostSaveRequestDto;
 import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +16,7 @@ public class Post {
     String writer;
     Timestamp createdAt;
 
-    public static Post of(PostRequestDto postRequestDto) {
+    public static Post of(PostSaveRequestDto postRequestDto) {
         return new Post(postRequestDto.getId(),
                 postRequestDto.getTitle(),
                 postRequestDto.getContent(),
