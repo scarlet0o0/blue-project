@@ -6,23 +6,17 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface PostMapper extends PostRepository {
+public interface PostMapper{
 
-    @Override
-    List<Post> AllPosts();
+    List<Post> getAllPosts();
 
-    @Override
-    List<Post> postPages(int pageNum);
+    List<Post> getPostPages(int pageNum);
 
-    @Override
     Post getPostById(Long id);
 
-    @Override
     void deleteById(Long id);
 
-    @Override
     void save(Post post);
 
-    @Override
     void update(Post post);
 }

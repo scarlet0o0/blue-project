@@ -4,9 +4,9 @@ import com.rainbow.blue.domain.Post;
 import java.util.List;
 
 public interface PostRepository {
-    List<Post> AllPosts();
+    List<Post> getAllPosts();
 
-    List<Post> postPages(int pageNum);
+    List<Post> getPostPages(int pageNum);
 
     Post getPostById(Long id);
 

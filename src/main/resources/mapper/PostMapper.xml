@@ -3,11 +3,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.rainbow.blue.repository.mapper.PostMapper">
-  <select id="AllPosts" resultType="com.rainbow.blue.domain.Post">
+  <select id="getAllPosts" resultType="com.rainbow.blue.domain.Post">
     SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post
   </select>
 
-  <select id="postPages" parameterType="int" resultType="com.rainbow.blue.domain.Post">
+  <select id="getPostPages" parameterType="int" resultType="com.rainbow.blue.domain.Post">
     SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post LIMIT 10 OFFSET  10 * #{pageNum}
   </select>
 

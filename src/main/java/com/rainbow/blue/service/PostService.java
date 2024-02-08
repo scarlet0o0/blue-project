@@ -24,12 +24,12 @@ public class PostService{
     }
 
     public List<PostResponseDto> getAllPosts() {
-        List<Post> posts = postRepository.AllPosts();
+        List<Post> posts = postRepository.getAllPosts();
         return posts.stream().map(PostResponseDto::from).toList();
     }
 
     public List<PostResponseDto> getPostPages(int pageNum) {
-        List<Post> posts = postRepository.postPages(pageNum);
+        List<Post> posts = postRepository.getPostPages(pageNum);
         return posts.stream().map(PostResponseDto::from).toList();
     }
 
