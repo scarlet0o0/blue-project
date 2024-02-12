@@ -1,7 +1,6 @@
 package com.rainbow.blue.repository.mapper;
 
 import com.rainbow.blue.domain.Post;
-import com.rainbow.blue.repository.PostRepository;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
