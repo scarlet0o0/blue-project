@@ -14,11 +14,11 @@ public class Post {
     Long id;
     String content;
     String writer;
-    String visibilityFlag;
+    VisibilityFlag visibilityFlag;
     Timestamp createdAt;
 
     @Builder
-    private Post(Long id, String content, String writer, String visibilityFlag, Timestamp createdAt) {
+    private Post(Long id, String content, String writer, VisibilityFlag visibilityFlag, Timestamp createdAt) {
         this.id = id;
         this.content = content;
         this.writer = writer;

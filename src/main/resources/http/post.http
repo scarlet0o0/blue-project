@@ -15,7 +15,7 @@ Content-Type: application/json
 {
   "content": "오늘의 새로운 글을 작성 해 보았다",
   "writer": "새로운 유저",
-  "visibilityFlag" : "Y"
+  "visibilityFlag" : "VISIBLE"
 }
 
 
@@ -26,7 +26,7 @@ Content-Type: application/json
 {
   "content": "오늘의 수정된 글을 작성 해 보았다",
   "writer": "수정된 유저",
-  "visibilityFlag" : "Y"
+  "visibilityFlag" : "VISIBLE"
 }
 
 ### 글 삭제
