@@ -4,23 +4,23 @@
 
 <mapper namespace="com.rainbow.blue.repository.mapper.PostMapper">
   <select id="getAllPosts" resultType="com.rainbow.blue.domain.Post">
-    SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post
+    SELECT post.id, post.content, post.writer, post.created_at as createdAt FROM post
   </select>
 
   <select id="getPostPages" parameterType="int" resultType="com.rainbow.blue.domain.Post">
-    SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post LIMIT 10 OFFSET  10 * #{pageNum}
+    SELECT post.id, post.content, post.writer, post.created_at as createdAt FROM post LIMIT 10 OFFSET  10 * #{pageNum}
   </select>
 
   <select id="getPostById" parameterType="Long" resultType="com.rainbow.blue.domain.Post">
-    SELECT post.id, post.title, post.content, post.writer, post.created_at as createdAt FROM post WHERE id=#{id}
+    SELECT post.id, post.content, post.writer, post.created_at as createdAt FROM post WHERE id=#{id}
   </select>
 
   <insert id="save" parameterType="com.rainbow.blue.domain.Post">
-    INSERT INTO post(title, content, writer, created_at) VALUES (#{title}, #{content}, #{writer}, #{createdAt})
+    INSERT INTO post(content, writer, visibility_flag, created_at) VALUES ( #{content}, #{writer},#{visibilityFlag}, #{createdAt})
   </insert>
 
   <update id="update" parameterType="com.rainbow.blue.domain.Post">
-    UPDATE post SET title=#{title}, content=#{content}, writer=#{writer} WHERE id=#{id}
+    UPDATE post SET content=#{content}, writer=#{writer} WHERE id=#{id}
   </update>
 
   <delete id="deleteById" parameterType="Long">

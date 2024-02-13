@@ -13,9 +13,9 @@ POST {{url}}/post
 Content-Type: application/json
 
 {
-  "title" : "글쓰기 추가",
   "content": "오늘의 새로운 글을 작성 해 보았다",
-  "writer": "새로운 유저"
+  "writer": "새로운 유저",
+  "visibilityFlag" : "Y"
 }
 
 
@@ -24,9 +24,9 @@ PUT {{url}}/post/1
 Content-Type: application/json
 
 {
-  "title" : "글쓰기 추가",
   "content": "오늘의 수정된 글을 작성 해 보았다",
-  "writer": "수정된 유저"
+  "writer": "수정된 유저",
+  "visibilityFlag" : "Y"
 }
 
 ### 글 삭제
