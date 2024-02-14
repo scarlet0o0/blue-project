@@ -3,16 +3,82 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.rainbow.blue.repository.mapper.PostMapper">
-  <select id="getAllPosts" resultType="com.rainbow.blue.domain.Post">
-    SELECT post.id, post.content, post.writer, post.created_at as createdAt FROM post
+
+  <resultMap id="postResult" type="com.rainbow.blue.domain.Post" >
+    <id column="post_id" property="id"/>
+    <result column="post_content" property="content"/>
+    <result column="post_writer" property="writer"/>
+    <result column="post_visibility_flag" property="visibilityFlag"/>
+    <result column="post_created_at" property="createdAt"/>
+    <association  property="book" column="post_book_id" javaType="com.rainbow.blue.domain.Book" resultMap="bookResult"/>
+    <association  property="readingStatus" column="post_reading_status_id" javaType="com.rainbow.blue.domain.ReadingStatus" resultMap="readingStatusResult"/>
+  </resultMap>
+  <resultMap type="com.rainbow.blue.domain.Book" id="bookResult">
+    <result column="book_id" property="id"/>
+    <result column="book_title" property="title"/>
+    <result column="book_author" property="author"/>
+    <result column="book_publisher" property="publisher"/>
+  </resultMap>
+  <resultMap type="com.rainbow.blue.domain.ReadingStatus" id="readingStatusResult">
+    <result column="reading_status_id" property="id"/>
+    <result column="reading_status_status" property="status"/>
+  </resultMap>
+
+  <select id="getAllPosts" resultMap="postResult">
+    SELECT post.id AS post_id,
+           post.content AS post_content,
+           post.writer AS post_writer,
+           post.visibility_flag AS post_visibility_flag,
+           post.created_at AS post_created_at,
+           post.book_id AS post_book_id,
+           post.reading_status_id AS post_reading_status_id,
+           book.id AS book_id,
+           book.title AS book_title,
+           book.author AS book_author,
+           book.publisher AS book_publisher,
+           reading_status.id AS reading_status_id,
+           reading_status.status AS reading_status_status
+    FROM post
+    LEFT JOIN book ON post.book_id = book.id
+    LEFT JOIN reading_status ON post.reading_status_id = reading_status.id
   </select>
 
-  <select id="getPostPages" parameterType="int" resultType="com.rainbow.blue.domain.Post">
-    SELECT post.id, post.content, post.writer, post.created_at as createdAt FROM post LIMIT 10 OFFSET  10 * #{pageNum}
+  <select id="getPostPages" parameterType="int" resultType="com.rainbow.blue.domain.Post" resultMap="postResult">
+    SELECT post.id AS post_id,
+           post.content AS post_content,
+           post.writer AS post_writer,
+           post.created_at AS post_created_at,
+           book.id AS book_id,
+           post.book_id AS post_book_id,
+           post.reading_status_id AS post_reading_status_id,
+           book.title AS book_title,
+           book.author AS book_author,
+           book.publisher AS book_publisher,
+           reading_status.id AS reading_status_id,
+           reading_status.status AS reading_status_status
+    FROM post
+    LEFT JOIN book ON post.book_id = book.id
+    LEFT JOIN reading_status ON post.reading_status_id = reading_status.id
+    LIMIT 10 OFFSET  10 * #{pageNum}
   </select>
 
-  <select id="getPostById" parameterType="Long" resultType="com.rainbow.blue.domain.Post">
-    SELECT post.id, post.content, post.writer, post.created_at as createdAt FROM post WHERE id=#{id}
+  <select id="getPostById" parameterType="Long" resultType="com.rainbow.blue.domain.Post" resultMap="postResult">
+    SELECT post.id AS post_id,
+           post.content AS post_content,
+           post.writer AS post_writer,
+           post.created_at AS post_created_at,
+           book.id AS book_id,
+           post.book_id AS post_book_id,
+           post.reading_status_id AS post_reading_status_id,
+           book.title AS book_title,
+           book.author AS book_author,
+           book.publisher AS book_publisher,
+           reading_status.id AS reading_status_id,
+           reading_status.status AS reading_status_status
+    FROM post
+    LEFT JOIN book ON post.book_id = book.id
+    LEFT JOIN reading_status ON post.reading_status_id = reading_status.id
+    WHERE post.id=#{id}
   </select>
 
   <insert id="save" parameterType="com.rainbow.blue.domain.Post">

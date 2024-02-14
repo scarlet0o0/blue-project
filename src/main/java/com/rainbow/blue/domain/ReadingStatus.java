@@ -6,9 +6,8 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Book {
+public class ReadingStatus {
     private Long id;
-    private String title;
-    private String author;
-    private String publisher;
+    private String status;
+
 }

@@ -11,19 +11,24 @@ import java.sql.Timestamp;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post {
-    Long id;
-    String content;
-    String writer;
-    VisibilityFlag visibilityFlag;
-    Timestamp createdAt;
+    private Long id;
+    private String content;
+    private String writer;
+    private VisibilityFlag visibilityFlag;
+    private Timestamp createdAt;
+    private Book book;
+    private ReadingStatus readingStatus;
 
     @Builder
-    private Post(Long id, String content, String writer, VisibilityFlag visibilityFlag, Timestamp createdAt) {
+    public Post(Long id, String content, String writer, VisibilityFlag visibilityFlag,
+            Timestamp createdAt, Book book, ReadingStatus readingStatus) {
         this.id = id;
         this.content = content;
         this.writer = writer;
         this.visibilityFlag = visibilityFlag;
         this.createdAt = createdAt;
+        this.book = book;
+        this.readingStatus = readingStatus;
     }
 
     public static Post of(PostRequestDto postRequestDto) {
