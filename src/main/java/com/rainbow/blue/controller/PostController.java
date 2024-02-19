@@ -1,14 +1,20 @@
 package com.rainbow.blue.controller;
 
+import com.rainbow.blue.dto.request.PostRequestDto;
 import com.rainbow.blue.dto.request.PostSaveRequestDto;
 import com.rainbow.blue.dto.response.PostResponseDto;
-import com.rainbow.blue.dto.request.PostUpdateRequestDto;
 import com.rainbow.blue.service.PostService;
-import java.util.List;
-
 import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
@@ -36,7 +42,7 @@ public class PostController {
     }
 
     @PutMapping(value = "/post/{postId}")
-    public void updatePost(@PathVariable Long postId, @Valid @RequestBody PostUpdateRequestDto postDto) {
+    public void updatePost(@PathVariable Long postId, @Valid @RequestBody PostRequestDto postDto) {
         postService.updatePost(postId, postDto);
     }
 
