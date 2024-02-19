@@ -15,7 +15,8 @@ Content-Type: application/json
 {
   "content": "오늘의 새로운 글을 작성 해 보았다",
   "writer": "새로운 유저",
-  "visibilityFlag" : "VISIBLE"
+  "visibilityFlag" : "VISIBLE",
+  "bookId" : "1"
 }
 
 

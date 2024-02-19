@@ -1,12 +1,12 @@
 package com.rainbow.blue.domain;
 
 import com.rainbow.blue.dto.request.PostRequestDto;
+import com.rainbow.blue.dto.request.PostSaveRequestDto;
+import java.sql.Timestamp;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.sql.Timestamp;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -29,6 +29,15 @@ public class Post {
         this.createdAt = createdAt;
         this.book = book;
         this.readingStatus = readingStatus;
+    }
+
+    public static Post of(PostSaveRequestDto postRequestDto) {
+        return Post.builder()
+                .content(postRequestDto.getContent())
+                .writer(postRequestDto.getWriter())
+                .visibilityFlag(postRequestDto.getVisibilityFlag())
+                .createdAt(new Timestamp(System.currentTimeMillis()))
+                .build();
     }
 
     public static Post of(PostRequestDto postRequestDto) {

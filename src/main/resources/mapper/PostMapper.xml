@@ -82,7 +82,8 @@
   </select>
 
   <insert id="save" parameterType="com.rainbow.blue.domain.Post">
-    INSERT INTO post(content, writer, visibility_flag, created_at) VALUES ( #{content}, #{writer},#{visibilityFlag}, #{createdAt})
+    INSERT INTO post(content, writer, visibility_flag, book_id, created_at)
+    VALUES ( #{content}, #{writer},#{visibilityFlag}, 1, #{createdAt})
   </insert>
 
   <update id="update" parameterType="com.rainbow.blue.domain.Post">
